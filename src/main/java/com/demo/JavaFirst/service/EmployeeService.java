@@ -3,7 +3,6 @@ package com.demo.JavaFirst.service;
 import com.demo.JavaFirst.Exception.UserNotFound;
 import com.demo.JavaFirst.entity.Employees;
 import com.demo.JavaFirst.model.EmployeesModel;
-import com.demo.JavaFirst.repository.ClientRepository;
 import com.demo.JavaFirst.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

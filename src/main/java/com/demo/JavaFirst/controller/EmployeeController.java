@@ -77,6 +77,5 @@ public ResponseEntity<?> register(@RequestBody EmployeesModel model) {
         }catch (Validation e){
             return ResponseHandler.generate(e.getError(),"failed",HttpStatus.BAD_REQUEST);
         }
-uhuyhiuh
     }
 }

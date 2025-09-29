@@ -42,7 +42,7 @@ public class EmployeeService {
 
     public void login(EmployeesModel employeesModel) {
         List<String> error = new ArrayList<>();
-        Employees employees=employeeRepository.loginByEmailAndPassword(employeesModel.getEmail(),employeesModel.getPassword());
+        Employees employees=employeeRepository.loginByNameAndPassword(employeesModel.getName(),employeesModel.getPassword());
         if (employees == null){
             error.add("invalid mail Id or Password ");
         }
@@ -56,7 +56,7 @@ public class EmployeeService {
         return employeeRepository.findEmployeesWithSalaryGreaterThanTenThousand();
     }
 
-    public List<Sample> searchAll(String name) {
+    public List<Employees> searchAll(String name) {
         return employeeRepository.findByAllData(name);
 
     }
@@ -86,7 +86,6 @@ public class EmployeeService {
         sample.setEmail(employeesModel.getEmail());
         return employeeRepository.save(sample);
     }
-
     public Employees find(Long id) {
         return employeeRepository.findById(id).orElseThrow(()-> new UserNotFound("client not found "+ id));
 

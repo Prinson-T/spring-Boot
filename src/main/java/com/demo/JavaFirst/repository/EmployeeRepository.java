@@ -15,11 +15,12 @@ public interface EmployeeRepository extends JpaRepository<Employees,Long> {
 @Query("select e from Employees e where e.salary > '10000'")
     List<Employees> findEmployeesWithSalaryGreaterThanTenThousand();
 
-    @Query("select c from Employees c where c.email =:email and c.password =:password")
-    Employees loginByEmailAndPassword(@Param("email") String email, @Param("password") String password);
+    @Query("select c from Employees c where c.name =:name and c.password =:password")
+    Employees loginByNameAndPassword(@Param("name") String name, @Param("password") String password);
 
-    @Query("SELECT s FROM Sample s WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<Sample> findByAllData(@Param("name") String name);
+
+    @Query("SELECT s FROM Employees s WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<Employees> findByAllData(@Param("name") String name);
 
     int countById(@Param("id") Long id);
 }
